@@ -26,8 +26,18 @@ class LinkedList:
             last_node = last_node.next
         last_node.next = new_node
 
+    def prepend(self, data):
+        # Create node for the item we want to prepend
+        new_node = Node(data)
+
+        #  Set the  head as the new node's next value
+        new_node.next = self.head
+        # Reassign the head to be the new node that we want
+        self.head = new_node
+
 
 llist = LinkedList()
 llist.append('A')
 llist.append('B')
+llist.prepend('C')
 llist.print_list()
