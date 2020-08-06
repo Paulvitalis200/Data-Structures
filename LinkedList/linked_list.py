@@ -35,9 +35,22 @@ class LinkedList:
         # Reassign the head to be the new node that we want
         self.head = new_node
 
+    def insert_after_node(self, prev_node, data):
+        # Check if the previous node is in the Linked List
+        if not prev_node:
+            print('Previous node not in Linked List')
+
+        # Keep track of the node we want to add
+        new_node = Node(data)
+
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+
 
 llist = LinkedList()
 llist.append('A')
 llist.append('B')
-llist.prepend('C')
+# llist.prepend('C')
+
+llist.insert_after_node(llist.head, 'D')
 llist.print_list()
