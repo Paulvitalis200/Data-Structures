@@ -48,4 +48,4 @@ def is_balanced(paren_string):
     else:
         return False
 
-print(is_balanced('(({}))'))
+print(is_balanced('('))
