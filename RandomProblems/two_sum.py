@@ -34,8 +34,8 @@ def two_sum_brute_force(A,  target):
 # Time Complexity:  O(n) Linear
 # Space Complexity: O(n) - Storing the dictionary and its proportional to the number of items
 def two_sum_hash_table(A, target):
-    hash_table  =  dict() 
-    for i in range(len(A)):
+    hash_table  = dict()
+    for i in  range(len(A)):
         if A[i] in hash_table:
             print(hash_table[A[i]], A[i])
             return True
@@ -43,5 +43,22 @@ def two_sum_hash_table(A, target):
             hash_table[target - A[i]] = A[i]
     return False
 
+# Time complexity: O(n) - n = size of given array
+# Space  complexity: O(1) - Not storing anything
+#  Takes advantage that  the array is sorted
+def two_sum(A, target):
+    i = 0
+    j = len(A) - 1
+    while i <= j:
+        if A[i] + A[j] ==  target:
+            print(A[i], A[j])
+            return True
+        elif A[i] + A[j] < target:
+            i += 1
+        else:
+            j -= 1
+    return False
+
 # print(two_sum_brute_force(A, target))
-print(two_sum_hash_table(A, target))
+# print(two_sum_hash_table(A, target))
+print(two_sum(A, target))
