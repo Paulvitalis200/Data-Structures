@@ -16,4 +16,32 @@ def two_sum_brute_force(A,  target):
                 return True
     return False
 
-print(two_sum_brute_force(A, target))
+# A = [-2, 1, 2, 4, 7, 11]
+# target = 5
+
+# i = 0
+# ht  = {}
+# ht[7] = -2
+
+# i = 1
+# ht[4] = 1
+
+# i = 2
+# ht[3] = 2
+
+# i = 3
+
+# Time Complexity:  O(n) Linear
+# Space Complexity: O(n) - Storing the dictionary and its proportional to the number of items
+def two_sum_hash_table(A, target):
+    hash_table  =  dict() 
+    for i in range(len(A)):
+        if A[i] in hash_table:
+            print(hash_table[A[i]], A[i])
+            return True
+        else:
+            hash_table[target - A[i]] = A[i]
+    return False
+
+# print(two_sum_brute_force(A, target))
+print(two_sum_hash_table(A, target))
