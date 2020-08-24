@@ -237,43 +237,38 @@ class LinkedList:
 
         return new_head
 
+    def remove_duplicates(self):
+
+        # Original list:
+        # 1 -> 6  -> 4 -> 2 -> 2 -> -4
+
+        cur = self.head
+        prev = None
+
+        dup_values = dict()
+
+        while cur:
+            if cur.data in dup_values:
+                # Remove node
+                prev.next = cur.next
+                cur = None
+            else:
+                #  Have not encountered element before
+                dup_values[cur.data] = 1
+                prev = cur
+            cur = prev.next
+
+
 
 llist = LinkedList()
-llist.append('A')
-llist.append('B')
-llist.append('C')
-llist.append('D')
-# llist.prepend('C')
+llist.append(1)
+llist.append(6)
+llist.append(1)
+llist.append(4)
+llist.append(2)
+llist.append(2)
+llist.append(4)
 
-# llist.insert_after_node(llist.head, 'D')
+llist.remove_duplicates()
 
-llist.delete_node('B')
-# llist.delete_node_at_pos(1)
-
-# print(llist.len_iterative())
-# print(llist.len_recursive(llist.head))
-# llist.print_list()
-
-# llist.swap_nodes("A", "A")
-# llist.reverse_iterative()
-# llist.reverse_recursive()
-# llist.print_list()
-
-llist_1 = LinkedList()
-llist_2 = LinkedList()
-
-llist_1.append(1)
-llist_1.append(5)
-llist_1.append(7)
-llist_1.append(9)
-llist_1.append(10)
-
-llist_2.append(2)
-llist_2.append(3)
-llist_2.append(4)
-llist_2.append(6)
-llist_2.append(8)
-
-llist_1.merge_sorted(llist_2)
-llist_1.print_list()
-
+llist.print_list()
