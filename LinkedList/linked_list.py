@@ -379,24 +379,28 @@ class LinkedList:
         #     count += 1
         # return True
 
-# Example palindromes:
-# RACECAR, RADAR
+    def move_tail_to_head(self):
+        
+        last = self.head
+        second_to_last = None
 
-# Example non-palindromes:
-# TEST, ABC, HELLO
+        while last.next:
+            second_to_last = last
+            last = last.next
+        last.next = self.head
+        second_to_last.next = None
+        self.head = last
+
+# A -> B -> C -> D -> Null
+# D -> A -> B -> C -> Null
 
 llist = LinkedList()
-llist.append("R")
 llist.append("A")
+llist.append("B")
+llist.append("C")
 llist.append("D")
-llist.append("A")
-llist.append("R")
 
-
-llist_2 = LinkedList()
-llist_2.append("A")
-llist_2.append("B")
-llist_2.append("C")
-
-print(llist.is_palindrome())
-print(llist_2.is_palindrome())
+llist.print_list()
+llist.move_tail_to_head()
+print("\n")
+llist.print_list()
