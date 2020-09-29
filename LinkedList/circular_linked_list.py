@@ -42,11 +42,37 @@ class CircularLinkedList:
             cur = cur.next
             if cur == self.head:
                 break
+
+    def remove(self, key):
+        if self.head.data == key:
+            cur = self.head
+            while cur.next != self.head:
+                cur = cur.next
+            cur.next = self.head.next
+            self.head = self.head.next
+        else:
+            cur = self.head
+            prev = None
+            while cur.next != self.head:
+                prev = cur
+                cur = cur.next
+                if cur.data == key:
+                    prev.next = cur.next
+                    cur = cur.next
+               
              
+# A -> B -> C -> D ->
+# Remove key = "B"
+# A -> C -> D -> 
 
 cllist = CircularLinkedList()
-cllist.append('C')
-cllist.append('D')
-cllist.prepend('B')
-cllist.prepend('A')
+cllist.append("A")
+cllist.append("B")
+cllist.append("C")
+cllist.append("D")
+
+cllist.remove("B")
+cllist.remove("C")
+cllist.remove("D")
+cllist.remove("E")
 cllist.print_list()
