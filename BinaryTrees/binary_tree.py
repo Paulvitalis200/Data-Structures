@@ -137,7 +137,16 @@ class BinaryTree:
         while len(stack) > 0:
             node = stack.pop()
             traversal += str(node.value) + "-"
-        return traversal
+        return traversal 
+
+    # Calculate height of binary tree
+    def height(self, node):
+        if node is None:
+            return -1
+        left_height = self.height(node.left)
+        right_height = self.height(node.right)
+
+        return 1 + max(left_height, right_height)
  
 #  1-2-4-5-3-6-7-
 # 4-2-5-1-6-3-7-
@@ -157,8 +166,10 @@ tree.root.left.right = Node(5)
 tree.root.right.left = Node(6)
 tree.root.right.right = Node(7)
 
+
 print(tree.print_tree("preorder"))
 print(tree.print_tree("inorder"))
 print(tree.print_tree("postorder"))
 print(tree.print_tree("levelorder"))
 print(tree.print_tree("reverseorder"))
+print("Height:", tree.height(tree.root))
