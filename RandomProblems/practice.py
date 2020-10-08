@@ -1,42 +1,31 @@
-A = [-2, 1, 2, 4, 7, 11]
-target = 5
+s =  "Was it a cat I saw?"
+s = "Tenet"
 
-# Time complexity: O(n^2)
-# Space Complexity: O(1)
-def two_sum(input, target_value):
-    for i in range(len(A)):
-        for j in range(i+1, len(A)):
-            if A[i] + A[j] == target_value:
-                print(A[i], A[j])
-                return True
-    return False
+#  Solutionn uses extra space proportional to size of string "s"
+# s = f
 
-# Time complexity: O(n)
-# Space complexity: O(n)
-def two_sum_hash(input_list, target_value):
-    hash_table = dict()
-    for i in range(len(input_list)):
-        if input_list[i] in hash_table:
-            print(hash_table[input_list[i]], input_list[i])
-            return True
-        else:
-            hash_table[target - input_list[i]] = input_list[i]
-    return False
-
-# Time complexity - O(n)
-# Space complexity - O(1)
-def two_sum_last(input_list, target_value):
+def is_palindrome(s):
     i = 0
-    j = len(input_list) - 1
-    while i <= j:
-        if input_list[i] + input_list[j] == target_value:
-            print(input_list[i], input_list[j])
-            return True
-        elif input_list[i] + input_list[j] < target_value:
-            i += 1
-        else:
-            j -= 1
-    return False
+    j = len(s) - 1
 
-myo = two_sum_last(A, target)
-print(myo)
+    while i < j:
+        while not s[i].isalnum() and i < j:
+            i += 1
+        while not s[j].isalnum() and i < j:
+            j -= 1
+        
+        if s[i].lower() != s[j].lower():
+            return False
+
+        i += 1
+        j -= 1
+    return True
+
+print(is_palindrome(s))
+
+# Steps
+# Move through the string from the left 
+# Check whether item is not alpha numeric and move forward if it is
+# Move through the string from the right
+# Check whether item is not alpha numeric and move forward if it is
+# Check if the items in lowercase on the left match those on the right
