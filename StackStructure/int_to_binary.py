@@ -33,11 +33,11 @@ def div_by_two(dec_num):
         s.push(remainder)
         dec_num = dec_num // 2
 
-    bin_num = ''
+    bin_num = ""
     while not s.is_empty():
         bin_num += str(s.pop())
 
     return bin_num
 
-print(div_by_two(242))
 
+print(div_by_two(234))

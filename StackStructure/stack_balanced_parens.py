@@ -12,17 +12,20 @@ Non-Balanced Example: (()
 
 Non-Balanced Example: }}
 """
+
 from stacks import Stack
 
-def is_match(p1, p2):
-    if p1 == '{' and p2 == '}':
+
+def is_match(s1, s2):
+    if s1 == '(' and s2 == ')':
         return True
-    elif p1 == '(' and p2 == ')':
+    elif s1 == '{' and s2 == '}':
         return True
-    elif p1 == '[' and p2 == ']':
+    elif s1 == '[' and s2 == ']':
         return True
     else:
         return False
+
 
 def is_balanced(paren_string):
     s = Stack()
@@ -31,7 +34,6 @@ def is_balanced(paren_string):
 
     while index < len(paren_string) and is_balanced:
         paren = paren_string[index]
-
         if paren in '({[':
             s.push(paren)
         else:
@@ -48,4 +50,5 @@ def is_balanced(paren_string):
     else:
         return False
 
-print(is_balanced('('))
+
+print(is_balanced("[[{}]]"))
