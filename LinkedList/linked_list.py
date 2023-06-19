@@ -142,36 +142,6 @@ class LinkedList:
 
         cur_1.next, cur_2.next = cur_2.next, cur_1.next
 
-        if key_1 == key_2:
-            return
-
-        prev_1 = None
-        cur_1 = self.head
-        while cur_1 and cur_1.data != key_1:
-            prev_1 = cur_1
-            cur_1 = cur_1.next
-
-        prev_2 = None
-        cur_2 = self.head
-        while cur_2 and cur_2.data != key_2:
-            prev_2 = cur_2
-            cur_2 = cur_2.next
-
-        if not cur_1 or not cur_2:
-            return None
-
-        if prev_1:
-            prev_1.next = cur_2
-        else:
-            self.head = cur_2
-
-        if prev_2:
-            prev_2.next = cur_1
-        else:
-            self.head = cur_1
-
-        cur_1.next, cur_2.next = cur_2.next, cur_1.next
-
     # A -> B -> C -> D -> 0
     # D -> C -> B -> A -> 0
     # A <- B <- C <- D <- 0
