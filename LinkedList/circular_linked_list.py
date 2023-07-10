@@ -199,19 +199,6 @@ class CircularLinkedList:
             self.remove_node(cur)
             cur = cur.next
 
-    def josephus_revision(self, step):
-        cur = self.head
-
-        while len(self) > 1:
-            count = 1
-
-            while count != step:
-                cur = cur.next
-                count += 1
-            self.remove_node(cur)
-            print("REMOVED: ", cur.data)
-            cur = cur.next
-
     def is_circular_linked_list(self,  input_list):
         cur = input_list.head
         while cur.next:

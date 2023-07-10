@@ -78,27 +78,6 @@ class BST:
             else:
                 return False
 
-    def is_bbst_sat(self):
-        if self.root:
-            is_satisfied = self._is_bbst_sat(self.root, self.root.data)
-
-            if is_satisfied is None:
-                return True
-            return False
-        return True
-
-    def _is_bbst_sat(self, cur_node, data):
-        if cur_node.left:
-            if cur_node.left.data < data:
-                return self._is_bbst_sat(cur_node.left, cur_node.left.data)
-            else:
-                return False
-        if cur_node.right:
-            if cur_node.right.data > data:
-                return self.is_bbst_sat(cur_node.right, cur_node.right.data)
-            else:
-                return False
-
 
 bst = BST()
 

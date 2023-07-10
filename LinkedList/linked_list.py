@@ -211,20 +211,6 @@ class LinkedList:
                 prev = cur
             cur = prev.next
 
-    def remove_dups_two(self):
-        cur = self.head
-        prev = None
-        dup_values = dict()
-
-        while cur:
-            if cur.data not in dup_values:
-                dup_values[cur.data] = 1
-                prev = cur
-            else:
-                prev.next = cur.next
-                cur = None
-            cur = prev.next
-
     def nth_to_last(self, n):
         cur_node = self.head
 
@@ -241,17 +227,6 @@ class LinkedList:
     def count_occurrences(self, data):
         cur = self.head
 
-        # hash_map = dict()
-        # while cur:
-        #     if cur.data in hash_map:
-        #         hash_map[cur.data] += 1
-        #     else:
-        #         hash_map[cur.data] = 1
-        #     cur = cur.next
-
-        # if data not in hash_map:
-        #     return 'Data does not exist'
-        # return hash_map[data]
         count = 0
         while cur:
             if cur.data == data:
@@ -270,28 +245,6 @@ class LinkedList:
             return self.count_occurrences_recursive(node.next, data)
 
     def rotate(self, k):
-        # p = self.head
-        # q = self.head
-
-        # count = 0
-        # prev = None
-
-        # while p and count != k:
-        #     prev = p
-        #     p = p.next
-        #     q = q.next
-        #     count += 1
-        # p = prev
-
-        # while q:
-        #     prev = q
-        #     q = q.next
-
-        # q = prev
-
-        # q.next = self.head
-        # self.head = p.next
-        # p.next = None
 
         p = self.head
         q = self.head
@@ -312,108 +265,6 @@ class LinkedList:
         q.next = self.head
         self.head = p.next
         p.next = None
-
-
-# Original list:
-# 1 -> 6  -> 1 -> 4 -> 2 -> 2
-
-#  Remove duplicates
-# 1  -> 6 -> 4 -> 2
-
-
-# llist = LinkedList()
-# llist.append(1)
-# llist.append("B")
-# llist.append("C")
-# llist.append("D")
-# # llist.delete_at_pos(0)
-# # llist.delete_node("B")
-# llist.insert_at_pos("F", 0)
-# llist.print_list()
-# print(llist.length())
-# print(llist.len_recursive(llist.head))
-# llist.swap_nodes("C", "D")
-# llist.print_list()
-# llist_1 = LinkedList()
-# llist_2 = LinkedList()
-
-# llist_1.append(1)
-# llist_1.append(5)
-# llist_1.append(7)
-# llist_1.append(9)
-# llist_1.append(10)
-
-# llist_2.append(2)
-# llist_2.append(3)
-# llist_2.append(4)
-# llist_2.append(6)
-# llist_2.append(8)
-
-# llist_1.merge_sorted_two(llist_2)
-# llist_1.print_list()
-
-    def merge_sorted_new(self, new_list):
-        p = self.head
-        q = new_list.head
-        s = None
-
-        if not p:
-            return q
-        if not q:
-            return p
-
-        if p and q:
-            if p.data <= q.data:
-                s = p
-                p = s.next
-            else:
-                s = q
-                q = s.next
-            new_head = s
-
-        while p and q:
-            if p.data <= q.data:
-                s.next = p
-                s = p
-                p = s.next
-            else:
-                s.next = q
-                s = q
-                q = s.next
-
-        if not p:
-            s.next = q
-        if not q:
-            s.next = p
-
-        return new_head
-
-    def reverse_latest(self):
-        cur = self.head
-
-        prev = None
-
-        while cur:
-            nxt = cur.next
-            cur.next = prev
-            prev = cur
-            cur = nxt
-        self.head = prev
-
-    def remove_dups_twsso(self):
-        cur = self.head
-
-        hash_map = dict()
-        prev = None
-        while cur:
-            if cur.data in hash_map:
-                prev.next = cur.next
-                cur = None
-                cur = prev.next
-            else:
-                hash_map[cur.data] = 1
-                prev = cur
-                cur = prev.next
 
     def is_palindrome(self):
         # Method 1:
@@ -512,41 +363,6 @@ class LinkedList:
                 p = p.next
             if q:
                 q = q.next
-        sum_list.print_list()
-
-    def sum_two_revision(self, llist):
-        p = self.head
-        q = llist.head
-
-        carry = 0
-
-        sum_list = LinkedList()
-
-        while p or q:
-            if not p:
-                i = 0
-            else:
-                i = p.data
-            if not q:
-                j = 0
-            else:
-                j = q.data
-
-            s = i + j + carry
-
-            if s >= 10:
-                carry = 1
-                remainder = s % 10
-                sum_list.append(remainder)
-            else:
-                carry = 0
-                sum_list.append(s)
-
-            if p:
-                p = p.next
-            if q:
-                q = q.next
-
         sum_list.print_list()
 
 
