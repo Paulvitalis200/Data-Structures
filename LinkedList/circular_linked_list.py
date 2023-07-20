@@ -66,23 +66,6 @@ class CircularLinkedList:
             if cur == self.head:
                 break
 
-    # def remove(self, key):
-    #     if self.head.data == key:
-    #         cur = self.head
-    #         while cur.next != self.head:
-    #             cur = cur.next
-    #         cur.next = self.head.next
-    #         self.head = self.head.next
-    #     else:
-    #         prev = None
-    #         cur = self.head
-    #         while cur.next != self.head:
-    #             prev = cur
-    #             cur = cur.next
-    #             if cur.data == key:
-    #                 prev.next = cur.next
-    #                 cur = cur.next
-
     def remove(self, key):
         if key == self.head.data:
             cur = self.head
@@ -139,35 +122,6 @@ class CircularLinkedList:
         self.print_list()
         print("\n")
         split_cllist.print_list()
-
-    def split_revision(self):
-        cur = self.head
-
-        size = len(self)
-        if len(self) == 0:
-            return None
-        if len(self) == 1:
-            return self.head
-
-        count = 0
-        mid = size // 2
-
-        while cur.next != self.head and count < mid:
-            prev = cur
-            cur = cur.next
-            count += 1
-        prev.next = self.head
-
-        split_list = CircularLinkedList()
-
-        while cur.next != self.head:
-            split_list.append(cur.data)
-            cur = cur.next
-        split_list.append(cur.data)
-
-        self.print_list()
-        print("\n")
-        split_list.print_list()
 
     def remove_node(self, node):
         if node == self.head:

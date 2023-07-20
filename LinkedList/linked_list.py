@@ -267,39 +267,6 @@ class LinkedList:
         p.next = None
 
     def is_palindrome(self):
-        # Method 1:
-        # s = ""
-        # p = self.head
-        # while p:
-        #     s += p.data
-        #     p = p.next
-
-        # return s == s[::-1]
-
-        # Method 2
-        # p = self.head
-        # s = []
-        # while p:
-        #     s.append(p.data)
-        #     p = p.next
-
-        # p = self.head
-        # while p:
-        #     data = s.pop()
-        #     if p.data != data:
-        #         return False
-        #     p = p.next
-
-        # return True
-
-        # Method 3
-        # s = ""
-        # cur = self.head
-        # while cur:
-        #     s += cur.data
-        #     cur = cur.next
-
-        # return s == s[::-1]
         s = []
         cur = self.head
         while cur:
@@ -370,40 +337,6 @@ llist = LinkedList()
 llist_2 = LinkedList()
 llist_3 = LinkedList()
 
-# llist.append("R")
-# llist.append("A")
-# llist.append("D")
-# llist.append("A")
-# llist.append("R")
-
-# llist_2.append("A")
-# llist_2.append("B")
-# llist_2.append("C")
-
-# llist.remove_dups_two()
-# llist.print_list()
-# print(llist.nth_to_last(10))
-# print("-----------")
-# print("    ")
-# print(llist.count_occurrences(3))
-# print(llist.count_occurrences_recursive(llist.head, 3))
-
-# llist.rotate(4)
-# llist.print_list()
-# llist.merge_sorted_new(llist_2)
-# llist.print_list()
-
-# print("\n")
-# llist.reverse_latest()
-# llist.print_list()
-
-# llist_3.remove_dups_two()
-# llist_3.print_list()
-
-
-# print(llist.is_palindrome())
-# print(llist_2.is_palindrome())
-
 llist.append(5)
 llist.append(6)
 llist.append(3)
@@ -411,11 +344,6 @@ llist.append(3)
 llist_2.append(8)
 llist_2.append(4)
 llist_2.append(2)
-
-# llist.print_list()
-# llist.move_tail_to_head()
-# print("\n")
-# llist.print_list()
 
 llist.sum_two_lists(llist_2)
 print("\n")
