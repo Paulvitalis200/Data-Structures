@@ -153,6 +153,7 @@ class CircularLinkedList:
             self.remove_node(cur)
             cur = cur.next
 
+
     def is_circular_linked_list(self,  input_list):
         cur = input_list.head
         while cur.next:
