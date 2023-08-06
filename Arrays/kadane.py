@@ -42,7 +42,7 @@ def kadane_sliding_window(nums):
     maxR, maxL = 0, 0
     L = 0
 
-    for R in range(nums):
+    for R in range(len(nums)):
         if cur_sum < 0:
             cur_sum = 0
             L = R
@@ -73,3 +73,25 @@ def max_sub_array_circular(nums):
     if globalMax > 0:
         return max(globalMax, total - globalMin)
     return globalMax
+
+def longest_turbulent_subarray(nums):
+    res, prev = 1, ""
+    l, r = 0, 1
+
+    while r < len(nums):
+        if nums[r-1] < nums[r] and prev != '<':
+            res = max(res, r-l+1)
+            r+= 1
+            prev = "<"
+        elif nums[r-1] > nums[r] and prev != '>':
+            res = max(res, r-l+1)
+            r+= 1
+            prev = ">"
+        else:
+            r = r + 1 if (nums[r-1] == nums[r]) else r
+            l = r - 1
+            prev = ""
+    return res
+
+
+print("TURBULENT SUBARRAY: ", longest_turbulent_subarray(myArray))
