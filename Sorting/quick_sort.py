@@ -20,6 +20,29 @@ def quick_sort(nums, start, end):
 
     return nums
 
+def quicksort(nums, start, end):
+    if end - start + 1  <= 1:
+        return
+    
+    pivot = nums[end]
+    L = start
+
+    for i  in range(start, len(nums)):
+        if  nums[i] < pivot:
+            temp = nums[L]
+            nums[L] = nums[i]
+            nums[i] =  temp
+            L += 1
+
+    nums[end] = nums[L]
+    nums[L] = pivot
+
+    quicksort(nums, start, L - 1)
+    quicksort(nums, L + 1, end)
+
+    return nums
+
+
 
 class QuickSort:
     def __init__(self):
@@ -67,6 +90,9 @@ sorting.push(333)
 
 # print(sorting.print_array())
 
-# sorting.sort(sorting.print_array(), 0, sorting.len() - 1)
+sorting.sort(sorting.print_array(), 0, sorting.len() - 1)
 
-# print(sorting.print_array())
+print(sorting.print_array())
+nums = [29,394,1,34,2,55,3]
+
+print(quicksort(nums, 0, len(nums) - 1))
