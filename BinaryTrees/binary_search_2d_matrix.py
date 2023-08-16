@@ -23,7 +23,11 @@ def searchMatrix(matrix, target: int) -> bool:
     # If none of the rows contain the target value
     if not (top <= bot):
         return False
+    
+    # Get the middle matrix row
     row = (top + bot) //2
+
+     # Do binary search on the respective matrice
     l, r = 0, COLS - 1
     while l <= r:
         m = (l + r) //2
