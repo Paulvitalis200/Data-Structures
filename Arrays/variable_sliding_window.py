@@ -23,7 +23,7 @@ def shortestSubarray(nums, target):
     L = 0
     total = 0
 
-    length = len(nums)
+    length = float("inf") # We are trying to minimisze it. When we ruun our min function, it would reduce it
 
     for R in range(len(nums)):
         total += nums[R]
@@ -33,7 +33,7 @@ def shortestSubarray(nums, target):
             total -= nums[L]
             L += 1
 
-    if length == len(nums):
+    if length == float("inf"):
         return 0
     else:
         return length
