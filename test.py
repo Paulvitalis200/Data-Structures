@@ -23,4 +23,8 @@ def call_sum(input_str):
     x = [int(i) for i in input_str]
     return sum(x)
 
-print(digital_root(942))
+# print(digital_root(942))
+
+people_list = ['harry', 16, 5, 10.97];
+people_list[0] = 'robert';
+print(people_list[0]);
