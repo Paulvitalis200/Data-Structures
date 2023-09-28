@@ -17,13 +17,14 @@ class UnionFind:
         p = self.par[n]
         # Keep traversing up while p != to it's parent
         while p != self.par[p]:
-            self.par[p] = self.par[self.par[p]] # path compression
+            self.par[p] = self.par[self.par[p]] # path compression. Shortens the links as we go up the chain of parents. If we were to do this ffind operation again, it will be faster
             p = self.par[p]
         return p
     
     # Given two nodes, we want to union them together to form a single set
     def union(self, n1, n2):
         p1, p2 = self.find(n1), self.find(n2)
+        # if parents are equal, we can't complete this operation
         if p1 == p2:
             return False
         
