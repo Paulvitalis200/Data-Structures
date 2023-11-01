@@ -20,7 +20,7 @@ def helper(i, curComb, combs,  n, k):
     curComb.pop()
 
     # Decision to NOT include i
-    helper(i, curComb, combs, n, k)
+    helper(i + 1, curComb, combs, n, k)
 
 
 # Tiime: O(k * C(n, k))
