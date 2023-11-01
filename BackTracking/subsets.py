@@ -7,7 +7,7 @@ def subsetsWithoutDuplicates(nums):
 
 def helper(i, nums, curSet, subsets):
     if i >= len(nums):
-        subsets.append(curSet.copy())
+        subsets.append(curSet.copy()) # We add a copy so that we don't add the exact reference which will be updated when we are  backtracking
         return
 
     # decision to include nums[i]
