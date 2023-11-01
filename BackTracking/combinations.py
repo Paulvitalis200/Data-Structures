@@ -38,6 +38,6 @@ def helper2(i, curComb, combs, n, k):
         return
     
     for j in range(i, n+1):
-        curComb.append(i)
+        curComb.append(j)
         helper2(j+1, curComb, combs, n, k)
         curComb.pop()
