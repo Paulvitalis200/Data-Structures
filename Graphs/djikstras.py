@@ -25,6 +25,7 @@ def shortestPath(edges, n, src):
         shortest[n1] = w1
 
         for n2, w2 in adj[n1]:
+            #  This is important so that we don't get stuck in an infinite loop. If we've already  calculated the shortest path
             if n2 not in shortest:
                 heapq.heappush(minHeap, [w1 + w2, n2])
     return shortest
