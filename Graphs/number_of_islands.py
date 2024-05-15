@@ -1,45 +1,41 @@
 from collections import deque
 
-
 def numIslands(grid):
-
-    if grid is None:
+    if not grid:
         return 0
+    
+    ROWS = len(grid)
+    COLS = len(grid[0])
 
-    rows, cols = len(grid), len(grid[0])
-
-    visited = set()
+    visit = set()
 
     islands = 0
 
-    for r in range(rows):
-        for c in range(cols):
-            if (r, c) not in visited and grid[r][c] == '1':
-                bfs(grid, r, c, rows, cols, visited)
+    def bfs(r, c):
+        queue = deque()
+        queue.append((r,c))
+        visit.add((r, c))
+
+        while queue:
+            row, col = queue.popleft()
+
+            directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+
+            for dr, dc in directions:
+                r, c = row + dr, col + dc
+                if (r in range(ROWS) and c in range(COLS) and
+                    grid[r][c] == '1' and (r, c) not in visit):
+                    queue.append((r, c))
+                    visit.add((r, c))
+
+    for r in range(ROWS):
+        for c in range(COLS):
+            if grid[r][c] == '1' and (r, c) not in visit:
+                bfs(r,c)
                 islands += 1
 
     return islands
 
-
-def bfs(grid, r, c, rows, cols, visited):
-    queue = deque()
-    queue.append((r, c))
-    visited.add((r, c))
-
-    while queue:
-        row, col = queue.popleft()
-
-        directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
-
-        for dr, dc in directions:
-            r, c = row + dr, col + dc
-
-            if ((r) in range(rows) and
-                (c) in range(cols) and
-                grid[r][c] == '1' and
-                    (r, c) not in visited):
-                queue.append((r, c))
-                visited.add((r, c))
 
 
 grid = [
